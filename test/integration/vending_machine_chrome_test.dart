@@ -11,12 +11,12 @@ main() {
   group('Vending Machine UI Chrome', () {
     HtmlElement root;
     setUp(() {
-      VendingMachineChromeProps vmChromeBuilder = VendingMachineChrome();
+      VendingMachineViewProps vmChromeBuilder = VendingMachineView();
       ReactElement vmChromeComponent = vmChromeBuilder();
 
       render(vmChromeComponent, container: document.body);
 
-      root = document.querySelector('.vending-machine-chrome');
+      root = document.querySelector('.vending-machine-view');
     });
 
     test('root element should exist and have a css class of "vending-machine-chrome"', () {
