@@ -5,7 +5,7 @@ library test.integration.generated_runner_test;
 
 import './vending_machine_chrome_test.dart' as vending_machine_chrome_test;
 import 'package:test/test.dart';
-import 'package:over_react/over_react.dart';
+import "package:over_react/over_react.dart";
 
 void main() {
   setClientConfiguration();

@@ -2,6 +2,7 @@ name: vending_machine_kata
 description: Dart version of the vending machine kata.
 
 dependencies:
+  w_flux: "2.9.4"
   over_react: "1.18.1"
   react: "3.6.0"
 

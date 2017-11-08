@@ -11,6 +11,10 @@ class VendingMachineChromeProps extends UiProps {
 class VendingMachineChromeComponent extends UiComponent<VendingMachineChromeProps> {
   @override
   render() {
-    return Dom.p()();
+    var containerBuilder = Dom.p()
+      ..className = 'vending-machine-chrome';
+
+      
+    return containerBuilder();
   }
 }

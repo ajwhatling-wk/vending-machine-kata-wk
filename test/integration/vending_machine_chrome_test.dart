@@ -8,21 +8,19 @@ import 'package:test/test.dart';
 import 'package:vending_machine_kata/src/vending_machine/vending_machine.dart';
 
 main() {
-  group('Vending Machine', () {
+  group('Vending Machine UI Chrome', () {
     HtmlElement root;
     setUp(() {
       VendingMachineChromeProps vmChromeBuilder = VendingMachineChrome();
       ReactElement vmChromeComponent = vmChromeBuilder();
 
-      render(vmChromeComponent);
+      render(vmChromeComponent, container: document.body);
 
       root = document.querySelector('.vending-machine-chrome');
-
-      expect(root, isNotNull);
     });
 
-    test('true should be true', () {
-      expect(true, isTrue);
+    test('root element should exist and have a css class of "vending-machine-chrome"', () {
+      expect(root, isNotNull);
     });
   });
 }
