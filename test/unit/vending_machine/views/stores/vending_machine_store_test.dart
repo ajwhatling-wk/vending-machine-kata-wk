@@ -13,14 +13,18 @@ main() {
       store = new VendingMachineStore(actions);
 
       store.beginListening();
+
+      store.setUpProducts(['A', 'B', 'C']);
     });
 
     group('when a product is selected', () {
-      test('the store should dispense the selected product', () async {
+      test('the store should reject a product that it does not have', () async {
         String product = Generators.randomString();
+
         await actions.productSelected(product);
 
-        expect(store.lastProductDispensed, equals(product));
+        expect(store.lastProductDispensed, isNull, reason: 'The last dispensed product was not null');
+        expect(store.displayError, equals('"${product}" not found'));
       });
     });
   });
