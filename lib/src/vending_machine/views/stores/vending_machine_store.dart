@@ -18,7 +18,7 @@ class VendingMachineStore extends Store {
   }
 
   void beginListening() {
-    _actions.productSelected.listen(_whenProductSelected);
+    triggerOnAction(_actions.productSelected, _whenProductSelected);
   }
 
   void _whenProductSelected(String product) {
