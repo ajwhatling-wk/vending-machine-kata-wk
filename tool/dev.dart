@@ -19,14 +19,14 @@ main(List<String> args) async {
 
   config.test
     ..platforms = ['content-shell']
-    // ..unitTests = ['test/unit/generated_runner_test.dart']
-    ..unitTests = ['test/integration/generated_runner_test.dart']
+    ..unitTests = ['test/unit/generated_runner_test.dart']
+    //..unitTests = ['test/integration/generated_runner_test.dart']
     ..pubServe = true;
 
   config.genTestRunner.configs = <TestRunnerConfig>[
     new TestRunnerConfig(
         genHtml: true,
-        directory: 'test/integration',
+        directory: 'test/unit',
         env: Environment.browser,
         filename: 'generated_runner_test',
         dartHeaders: const <String>[
