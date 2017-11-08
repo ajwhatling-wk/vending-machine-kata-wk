@@ -19,11 +19,27 @@ main(List<String> args) async {
 
   config.test
     ..platforms = ['content-shell']
-    // ..unitTests = ['test/unit/generated_runner_test.dart']
-    ..unitTests = ['test/integration/generated_runner_test.dart']
+    ..unitTests = ['test/unit/generated_runner_test.dart']
+    ..integrationTests = ['test/integration/generated_runner_test.dart']
     ..pubServe = true;
 
   config.genTestRunner.configs = <TestRunnerConfig>[
+    new TestRunnerConfig(
+        genHtml: true,
+        directory: 'test/unit',
+        env: Environment.browser,
+        filename: 'generated_runner_test',
+        dartHeaders: const <String>[
+          'import "package:over_react/over_react.dart";',
+        ],
+        preTestCommands: const <String>[
+          'setClientConfiguration();',
+          'enableTestMode();',
+        ],
+        htmlHeaders: const <String>[
+          '<script src="packages/react/react_with_addons.js"></script>',
+          '<script src="packages/react/react_dom.js"></script>',
+        ]),
     new TestRunnerConfig(
         genHtml: true,
         directory: 'test/integration',
