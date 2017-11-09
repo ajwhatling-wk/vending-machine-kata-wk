@@ -20,8 +20,8 @@ class VendingMachineViewComponent
         props.actions.productSelected('pepsi');
       })();
 
-    ReactElement productDispenser = (Dom.div()
-      ..className = 'product-dispenser')(this.props.store.lastProductDispensed);
+    ReactElement productDispenser = (ProductDispenserView()
+      ..dispensedProduct = props.store.lastProductDispensed)();
 
     return containerBuilder(productSelector, productDispenser);
   }
