@@ -1,5 +1,5 @@
 @TestOn('browser')
-library vending_machine_chrome_test;
+library vending_machine_int_test;
 
 import 'dart:async';
 import 'dart:html';
@@ -9,7 +9,7 @@ import 'package:test/test.dart';
 import 'package:vending_machine_kata/src/vending_machine/vending_machine.dart';
 
 main() {
-  group('Vending Machine UI Chrome', () {
+  group('Vending Machine Integration Tests', () {
     HtmlElement root;
 
     VendingMachineActions actions;;
@@ -20,14 +20,14 @@ main() {
       store = new VendingMachineStore(actions);
       store.beginListening();
 
-      VendingMachineViewProps vmChromeBuilder = VendingMachineView()
+      VendingMachineViewProps vendingMachineBuilder = VendingMachineView()
         ..actions = actions
         ..store = store;
-      ReactElement vmChromeComponent = vmChromeBuilder();
+      ReactElement vendingMachineComponent = vendingMachineBuilder();
 
       store.setUpProducts(['pepsi']);
 
-      render(vmChromeComponent, container: document.body);
+      render(vendingMachineComponent, container: document.body);
 
       root = document.querySelector('.vending-machine-view');
     });
@@ -38,7 +38,7 @@ main() {
       expect(root, isNotNull);
     });
 
-    test('when I click a product, it dispense it in the dispense slot', () async {
+    test('when I click a product, it dispenses it in the dispense slot', () async {
       Element productButton = document.querySelector('.product-selector');
 
       click(productButton);

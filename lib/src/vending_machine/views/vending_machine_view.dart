@@ -11,16 +11,16 @@ class VendingMachineViewProps extends FluxUiProps<VendingMachineActions, Vending
 class VendingMachineViewComponent extends FluxUiComponent<VendingMachineViewProps> {
   @override
   render() {
-    var containerBuilder = Dom.p()..className = 'vending-machine-view';
+    DomProps containerBuilder = Dom.div()..className = 'vending-machine-view';
 
-    var productSelector = (Dom.button()
+    ReactElement productSelector = (Dom.button()
       ..className = 'product-selector'
       ..onClick = (_) {
         props.actions.productSelected('pepsi');
       }
       )();
 
-    var productDispenser = (Dom.div()..className='product-dispenser')(this.props.store.lastProductDispensed);
+    ReactElement productDispenser = (Dom.div()..className='product-dispenser')(this.props.store.lastProductDispensed);
 
     return containerBuilder(productSelector, productDispenser);
   }
