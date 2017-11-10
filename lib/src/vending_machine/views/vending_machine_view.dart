@@ -17,7 +17,7 @@ class VendingMachineViewComponent
     ReactElement productSelector = (Dom.button()
       ..className = 'product-selector'
       ..onClick = (_) {
-        props.actions.productSelected('pepsi');
+        props.actions.productSelected('Pepsi');
       })();
 
     ReactElement productDispenser = (ProductDispenserView()

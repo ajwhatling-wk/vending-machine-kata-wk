@@ -25,7 +25,7 @@ main() {
         ..store = store;
       ReactElement vendingMachineComponent = vendingMachineBuilder();
 
-      store.setUpProducts(['pepsi']);
+      store.setUpProducts(['Pepsi']);
 
       render(vendingMachineComponent, container: document.body);
 
@@ -46,7 +46,7 @@ main() {
 
       Element dispenser = document.querySelector('.product-dispenser');
 
-      expect(dispenser.text, contains('pepsi'));
+      expect(dispenser.text, contains('Pepsi'));
     });
   });
 }
